@@ -13,13 +13,7 @@ fn read_csv_from_file_and_print(file_path: &str) -> Result<Vec<StringRecord>, an
 }
 
 fn main() -> Result<(), anyhow::Error> {
-    let file_data = match read_csv_from_file_and_print("./customers.csv") {
-        Ok(file_data) => file_data,
-        Err(e) => {
-            eprintln!("{}", e);
-            return Err(e);
-        }
-    };
+    let file_data = read_csv_from_file_and_print("./customers.csv")?;
 
     println!("File below");
     println!("{:?}", file_data);
